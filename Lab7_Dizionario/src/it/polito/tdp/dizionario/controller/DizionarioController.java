@@ -95,6 +95,8 @@ public class DizionarioController {
 				return;
 			}
 
+			// Sono tutte alternative. Basta un solo metodo.
+			// I risultati dovrebbero essere identici (anche se in ordine diverso).
 			List<String> parole = model.displayAllNeighbours(parolaInserita);
 			List<String> paroleOne = model.displayAllNeighboursOne(parolaInserita);
 			List<String> paroleTwo = model.displayAllNeighboursTwo(parolaInserita);
