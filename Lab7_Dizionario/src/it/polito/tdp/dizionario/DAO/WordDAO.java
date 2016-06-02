@@ -30,8 +30,9 @@ public List<String> getAllSimilarWords(String parola,int lunghezza){
 				String p= res.getString("nome");
 				listaTutteLeParole.add(p);
 			}
-			int delta=0;
+			
 			for(String sTemp:listaTutteLeParole){
+				int delta=0;
 				for(int i=0;i<parola.length();i++){
 					if (sTemp.charAt(i)==parola.charAt(i))
 						delta++;

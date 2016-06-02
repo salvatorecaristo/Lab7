@@ -5,6 +5,7 @@ import java.util.*;
 import org.jgrapht.Graphs;
 import org.jgrapht.UndirectedGraph;
 import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.Multigraph;
 import org.jgrapht.graph.SimpleGraph;
 import org.jgrapht.traverse.DepthFirstIterator;
 import org.jgrapht.traverse.GraphIterator;
@@ -16,14 +17,11 @@ public class Model {
 	WordDAO w= new WordDAO();
 	UndirectedGraph<String, DefaultEdge> graph;
 	List <String> nodi = new LinkedList<String>();
-	List <String> nodi2 = new LinkedList<String>();
 	List<String> paroleSimili = new LinkedList<String>();
 
 
 	// devo aggiungere tutti i nodi (che sono tutte le parole 
 	//									di una certa lunghezza) al grafo
-	
-	
 	
 	public List<String> createGraph (int lun){
 		nodi.clear();
@@ -44,6 +42,10 @@ public class Model {
 		return nodi;
 	}
 	
+	public UndirectedGraph<String, DefaultEdge> getGraph() {
+		return graph;
+	}
+
 	public List<String> getNodi() {
 		return nodi;
 	}

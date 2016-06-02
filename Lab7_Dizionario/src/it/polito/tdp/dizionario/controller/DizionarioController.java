@@ -15,8 +15,8 @@ import javafx.scene.control.TextField;
 public class DizionarioController {
 	
 	Model model;
-
-    @FXML
+  
+	@FXML
     private ResourceBundle resources;
 
     @FXML
@@ -50,6 +50,9 @@ public class DizionarioController {
     	String S=txtLettere.getText();
     	int l = Integer.parseInt(S);
     	model.createGraph(l);
+    	
+    	
+    	//System.out.println(model.getGraph().toString());
     	
     	txtGrafo.setText("grafo creato, ci sono "+model.getNodi().size()+" nodi");
     }
