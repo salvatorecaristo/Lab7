@@ -41,12 +41,14 @@ public List<String> getAllSimilarWords(String parola,int lunghezza){
 						listaParoleSimili.add(sTemp);
 				}
 			}
+			//conn.close();
 			return listaParoleSimili;
 			
 			
 		} catch (SQLException e) {
-			throw new RuntimeException("Errore DB");
-
+			//throw new RuntimeException("Errore DB");
+			e.printStackTrace();
+			return null;
 		}
 		
 	}
@@ -55,14 +57,11 @@ public List<String> getAllSimilarWords(String parola,int lunghezza){
 
 public List<String> getAllWords(int lunghezza){
 	
-	List <String> listaTutteLeParole = new LinkedList<String>();
 	Connection conn= DBConnect.getConnection();
 	String sql= "SELECT nome FROM parola WHERE LENGTH(nome)=?;";
 	
 	try {
-		
-		//List <String> listaTutteLeParole = new LinkedList<String>();
-		//List <String> listaParoleSimili = new LinkedList<String>();
+		List <String> listaTutteLeParole = new LinkedList<String>();
 
 		PreparedStatement st= conn.prepareStatement(sql);
 		st.setInt(1, lunghezza);
@@ -72,11 +71,14 @@ public List<String> getAllWords(int lunghezza){
 			String p= res.getString("nome");
 			listaTutteLeParole.add(p);
 		}
-			return listaTutteLeParole;
+		//conn.close();
+		return listaTutteLeParole;
 		
 		
 	} catch (SQLException e) {
-		throw new RuntimeException("Errore DB");
+		//throw new RuntimeException("Errore DB");
+		e.printStackTrace();
+		return null;
 
 	}
 	
